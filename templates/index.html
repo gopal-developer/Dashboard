@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IITM CDOT Samgnya Technologies Foundation - Student Applications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <style>
+                
+       
+        
+        .header-container {
+            max-width: 1700px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 0 0 auto;
+        }
+        
+        .logo {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-text {
+            text-align: center;
+            flex: 1;
+            padding: 0 30px;
+            color: #fff;
+        }
+        
+        .header-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin: 0;
+            opacity: 0.95;
+            letter-spacing: 0.3px;
+            color: #e3f2fd;
+        }
+        
+        /* Table specific styles */
+        .column-indicator {
+            font-size: 0.8rem;
+            color: #666;
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 5px;
+            font-family: monospace;
+        }
+        
+        .table-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .column-title {
+            font-weight: bold;
+        }
+        
+        /* Responsive header */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .logo-container {
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .logo {
+                height: 60px;
+            }
+            
+            .header-text {
+                padding: 0 15px;
+            }
+            
+            .header-title {
+                font-size: 1.6rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                height: 50px;
+            }
+            
+            .header-title {
+                font-size: 1.4rem;
+            }
+            
+            .tagline {
+                font-size: 0.9rem;
+            }
+        }
+    </style> 
+
+</head>
+<body>
+    <!-- Main Header -->
+   <header style="background: #1a237e; padding: 20px;">
+    <div class="header-container">
+
+      <!-- LEFT LOGO -->
+      <img src="https://www.samgnya.in/files/WhatsApp%20Image%202025-03-20%20at%2010.31.22%20AM.jpeg" class="log" class="logo" width="100">
+
+      <!-- TITLE -->
+      <div class="header-text">
+        <h1>IITM CDOT Samgnya Technologies Foundation</h1>
+        <p class="tagline">An initiative under the National Quantum Mission of DST</p>
+      </div>
+
+      <!-- RIGHT LOGO -->
+      <img src="https://www.samgnya.in/files/NQM_Logo.png" class="log" class="logo" width="100">
+
+    </div>
+  </header>
+
+
+
+ 
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Page Title -->
+        <div class="page-title">
+            <h2><i class="fas fa-users"></i> Fellowship & internship Application Records</h2>
+            <p>Review and manage applications submitted through the portal</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <a href="/refresh" class="btn-refresh">
+                <i class="fas fa-sync-alt"></i> Refresh Data & Reload Page
+            </a>
+            <span class="info">
+                <i class="fas fa-database"></i> {{ excel_data|length }} records loaded
+            </span>
+            <span class="timestamp">
+                <i class="fas fa-clock"></i> Last updated: <span id="update-time"></span>
+            </span>
+        </div>
+
+        <!-- Data Table -->
+        <div class="table-container">
+            {% if excel_data %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Name</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Date</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Highest Degree</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Institution</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">CGPA/Percentage</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Graduation Year</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Duration</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Statement of Purpose</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Select Institutes</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Select Faculty</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Resume/CV</div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <div class="column-title">Reference Letter</div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in excel_data %}
+                    <tr>
+                        <td>{{ row['Name'] }}</td>
+                        <td>
+                            {% if row['Date'] %}
+                                {{ row['Date'] }}
+                            {% else %}
+                                <span class="no-data">No date</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ row['Highest Degree Obtained'] }}</td>
+                        <td>{{ row['Institution Name'] }}</td>
+                        <td>
+                            {% if row['CGPA/Percentage'] %}
+                                {{ row['CGPA/Percentage'] }}
+                            {% else %}
+                                <span class="no-data">Not provided</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if row['Year of Graduation'] %}
+                                {{ row['Year of Graduation'] }}
+                            {% else %}
+                                <span class="no-data">Not provided</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if row['Duration'] %}
+                                {{ row['Duration'] }}
+                            {% else %}
+                                <span class="no-data">Not specified</span>
+                            {% endif %}
+                        </td>
+                        <td class="sop-cell">
+                            {% if row['Statement of Purpose'] and row['Statement of Purpose']|length > 0 %}
+                                {{ row['Statement of Purpose'][:100] }}{% if row['Statement of Purpose']|length > 100 %}...{% endif %}
+                            {% else %}
+                                <span class="no-data">Not provided</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if row['Select Institutes'] %}
+                                {{ row['Select Institutes'] }}
+                            {% else %}
+                                <span class="no-data">Not selected</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if row['Select Faculty'] %}
+                                {{ row['Select Faculty'] }}
+                            {% else %}
+                                <span class="no-data">Not selected</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if row['Upload Resume/CV'] and row['Upload Resume/CV'] is string %}
+                                {% if row['Upload Resume/CV'].startswith('http') or row['Upload Resume/CV'].startswith('www') or row['Upload Resume/CV'].startswith('https') %}
+                                    <a href="{{ row['Upload Resume/CV'] }}" target="_blank" class="link-btn" title="{{ row['Upload Resume/CV'] }}">
+                                        <i class="fas fa-external-link-alt"></i> Open
+                                    </a>
+                                {% elif row['Upload Resume/CV']|lower == 'no link' or row['Upload Resume/CV'] == '' %}
+                                    <span class="no-link">No link</span>
+                                {% else %}
+                                    {{ row['Upload Resume/CV'] }}
+                                {% endif %}
+                            {% else %}
+                                <span class="no-link">No link</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if row['Reference Letter'] and row['Reference Letter'] is string %}
+                                {% if row['Reference Letter'].startswith('http') or row['Reference Letter'].startswith('www') or row['Reference Letter'].startswith('https') %}
+                                    <a href="{{ row['Reference Letter'] }}" target="_blank" class="link-btn" title="{{ row['Reference Letter'] }}">
+                                        <i class="fas fa-external-link-alt"></i> Open
+                                    </a>
+                                {% elif row['Reference Letter']|lower == 'no link' or row['Reference Letter'] == '' %}
+                                    <span class="no-link">No link</span>
+                                {% else %}
+                                    {{ row['Reference Letter'] }}
+                                {% endif %}
+                            {% else %}
+                                <span class="no-link">No link</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="no-data">
+                <i class="fas fa-exclamation-triangle fa-3x"></i>
+                <h3>No Data Available</h3>
+                <p>Unable to load data from the Excel file. Possible reasons:</p>
+                <ul>
+                    <li>The Excel file URL may be incorrect or inaccessible</li>
+                    <li>Column indices in the code don't match your Excel file</li>
+                    <li>The Excel file is empty or has no data</li>
+                </ul>
+                <p>Check the terminal output for detailed error information.</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Page loaded at: <span id="current-time"></span></p>
+            <p class="hint">
+                <i class="fas fa-lightbulb"></i> 
+                Data is automatically fetched from the Excel sheet. Refresh to get the latest updates.
+            </p>
+          
+        </footer>
+    </div>
+
+    <script>
+        // Display current time
+        document.getElementById('current-time').textContent = new Date().toLocaleString();
+        document.getElementById('update-time').textContent = new Date().toLocaleTimeString();
+        
+        // Auto-refresh notification every 5 minutes
+        setTimeout(function() {
+            const refresh = confirm('Data refresh available. Would you like to reload the page to get the latest data?');
+            if (refresh) {
+                window.location.href = '/refresh';
+            }
+        }, 300000);
+        
+        // Add logo error handling fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const logos = document.querySelectorAll('.logo');
+            logos.forEach(logo => {
+                logo.addEventListener('error', function() {
+                    this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="#ffffff"/><text x="50" y="50" font-family="Arial" font-size="14" fill="#000000" text-anchor="middle" dy=".3em">Logo</text></svg>';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

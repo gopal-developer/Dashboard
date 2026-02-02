@@ -162,16 +162,6 @@ table td {
 
 /* Special cell formatting */
 .sop-cell {
-    max-width: 200px;
-    padding: 8px !important;
-}
-
-.sop-cell::after {
-    content: '';
-    display: block;
-}
-
-.sop-cell {
     display: inline-block;
     width: 180px;
     height: 100px;
@@ -179,7 +169,8 @@ table td {
     word-wrap: break-word;
     white-space: pre-wrap;
     vertical-align: middle;
-    text-align: center;
+    padding: 0 !important;
+    margin: 0;
 }
 
 .link-btn {

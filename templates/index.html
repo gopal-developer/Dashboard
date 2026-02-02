@@ -282,7 +282,7 @@
                         </td>
                         <td class="sop-cell">
                             {% if row['Statement of Purpose'] and row['Statement of Purpose']|length > 0 %}
-                                {{ row['Statement of Purpose'][:100] }}{% if row['Statement of Purpose']|length > 100 %}...{% endif %}
+                                {{ row['Statement of Purpose'] }}
                             {% else %}
                                 <span class="no-data">Not provided</span>
                             {% endif %}

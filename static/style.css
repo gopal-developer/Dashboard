@@ -163,12 +163,22 @@ table td {
 /* Special cell formatting */
 .sop-cell {
     max-width: 200px;
+    padding: 8px !important;
+}
+
+.sop-cell::after {
+    content: '';
+    display: block;
+}
+
+.sop-cell {
+    display: inline-block;
+    width: 180px;
     height: 60px;
     overflow-y: auto;
     word-wrap: break-word;
     white-space: pre-wrap;
     vertical-align: top;
-    padding: 12px !important;
 }
 
 .link-btn {

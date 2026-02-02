@@ -160,11 +160,24 @@ table td {
     text-overflow: ellipsis;
 }
 
+/* Reduce width for CGPA/Percentage and Graduation Year columns */
+table td:nth-child(5),
+table td:nth-child(6) {
+    max-width: 90px;
+    padding: 16px 6px;
+    text-align: center;
+}
+
 /* Special cell formatting */
 .sop-cell {
-    max-width: 300px;
-    min-width: 250px;
+    max-width: 200px;
     word-wrap: break-word;
+}
+
+/* Match width for Select Institutes column */
+table td:nth-child(9) {
+    max-width: 250px;
+   /* min-width: 200px; */
 }
 
 .link-btn {

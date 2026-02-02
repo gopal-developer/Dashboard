@@ -115,7 +115,7 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 900px;
+    min-width: 1300px;
 }
 
 table thead {
@@ -155,7 +155,7 @@ table td {
     font-size: 0.92rem;
     line-height: 1.4;
     vertical-align: top;
-    max-width: 120px;
+    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
 }

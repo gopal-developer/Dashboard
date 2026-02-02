@@ -5,9 +5,6 @@ from flask import Flask, render_template
 from io import BytesIO
 import traceback
 
-# Flask Dashboard App
-
-
 app = Flask(__name__)
 EXCEL_URL = "https://sheet.zohopublic.in/sheet/published/zn2qy64c7d154d78141b8b07bfe9e9d793dc2?download=xlsx"
 

@@ -115,7 +115,7 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 900px;
+    min-width: 1300px;
 }
 
 table thead {
@@ -170,7 +170,7 @@ table td:nth-child(6) {
 
 /* Special cell formatting */
 .sop-cell {
-    max-width: 250px;
+    max-width: 1000px;
     min-width: 200px;
     max-height: 5.6em;
     overflow-y: auto;
@@ -179,13 +179,8 @@ table td:nth-child(6) {
 
 /* Match width for Select Institutes column */
 table td:nth-child(9) {
-    max-width: 150px;
-}
-
-/* Reference Letter column */
-table td:nth-child(11) {
-    max-width: 100px;
-    min-width: 80px;
+    max-width: 250px;
+    min-width: 200px;
 }
 
 .link-btn {
@@ -287,7 +282,7 @@ footer .hint {
 
 /* Responsive */
 @media (max-width: 768px) {
-    /* .container {
+    .container {
         padding: 15px;
         margin: 15px auto;
     }
@@ -314,5 +309,5 @@ footer .hint {
     table th, table td {
         padding: 12px 8px;
         font-size: 0.85rem;
-    } */
+    }
 }

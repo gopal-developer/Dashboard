@@ -163,12 +163,12 @@ table td {
 /* Special cell formatting */
 .sop-cell {
     max-width: 200px;
-    display: block;
-    height: 50px;
-    overflow-y: scroll;
+    height: 60px;
+    overflow-y: auto;
     word-wrap: break-word;
     white-space: pre-wrap;
-    padding: 8px !important;
+    vertical-align: top;
+    padding: 12px !important;
 }
 
 .link-btn {

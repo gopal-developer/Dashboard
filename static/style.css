@@ -160,6 +160,13 @@ table td {
     text-overflow: ellipsis;
 }
 
+/* Name column - reduce width */
+table td:nth-child(1),
+table th:nth-child(1) {
+    max-width: 120px;
+    min-width: 100px;
+}
+
 /* Reduce width for CGPA/Percentage and Graduation Year columns */
 table td:nth-child(5),
 table td:nth-child(6) {
@@ -309,5 +316,11 @@ footer .hint {
     table th, table td {
         padding: 12px 8px;
         font-size: 0.85rem;
+    }
+    
+    table td:nth-child(1),
+    table th:nth-child(1) {
+        max-width: 90px;
+        min-width: 75px;
     }
 }

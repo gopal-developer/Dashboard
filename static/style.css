@@ -163,6 +163,7 @@ table td {
 /* Special cell formatting */
 .sop-cell {
     max-width: 200px;
+    max-height: 50px;
     overflow-y: auto;
     word-wrap: break-word;
     white-space: pre-wrap;

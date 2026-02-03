@@ -241,7 +241,7 @@
                         </th>
                         <th>
                             <div class="table-header">
-                                <div class="column-title">Reference Letter</div>
+                                <div class="column-title">Ref. Letter</div>
                             </div>
                         </th>
                     </tr>
@@ -287,14 +287,14 @@
                                 <span class="no-data">Not provided</span>
                             {% endif %}
                         </td>
-                        <td>
+                        <td class="si-cell">
                             {% if row['Select Institutes'] %}
                                 {{ row['Select Institutes'] }}
                             {% else %}
                                 <span class="no-data">Not selected</span>
                             {% endif %}
                         </td>
-                        <td>
+                        <td class="sf-cell">
                             {% if row['Select Faculty'] %}
                                 {{ row['Select Faculty'] }}
                             {% else %}

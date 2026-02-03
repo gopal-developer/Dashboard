@@ -182,12 +182,35 @@ table td:nth-child(6) {
     max-height: 5.6em;
     overflow-y: auto;
     display: block;
+    align-items: center;
+}
+
+/* Select Faculty column with scrolling - shows 3 lines then scroll */
+.sf-cell {
+    max-width: 250px;
+    min-width: 200px;
+    max-height: 4.4em;
+    overflow-y: auto;
+    display: block;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 /* Match width for Select Institutes column */
 table td:nth-child(9) {
     max-width: 250px;
     min-width: 200px;
+}
+
+/* Select Faculty column with scrolling */
+table td:nth-child(10) {
+    max-width: 250px;
+    min-width: 200px;
+    max-height: 5.6em;
+    overflow-y: auto;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .link-btn {
